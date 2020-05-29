@@ -57,7 +57,29 @@ int main() {
             cin >> A[i];
         }
 
-        print_vec(A, N);
+        lld l = 0;
+        lld r = 0;
+        lld max_len = 0;
+
+        map<int, int> freq;
+
+        while (r < N) {
+
+            freq[A[r]]++;
+
+            while (freq.size() >= K ) {
+                freq[A[l]]--;
+                if (freq[A[l]] == 0)
+                    freq.erase(A[l]);
+                l++;
+            }
+
+            max_len = std::max(max_len, r-l+1);
+
+            r++;
+        }
+
+        cout << max_len << '\n';
     }
     return 0;
 }
