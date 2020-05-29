@@ -2,6 +2,8 @@
 
 https://www.codechef.com/LEARNDSA
 
+[![Run on Repl.it](https://repl.it/badge/github/satyajitghana/Codechef-LearnDSA)](https://repl.it/github/satyajitghana/Codechef-LearnDSA)
+
 DSA Learning Series is an educational series put together by CodeChef Volunteers. Under this, we will be hosting a new practice contest starting every Monday. These contests will each be covering curated problems from a certain topic(s) along with the resources to learn from.
 
 The aim of this is to teach basic DSA on codechef platform, we'll be solving the prolems posted, and disucss on the same, anyone is welcome to create pull requests and contribute to this series.
