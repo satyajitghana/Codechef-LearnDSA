@@ -1,8 +1,10 @@
-// template
 #include <bits/stdc++.h>
 
 using namespace std;
 
+#define fastio                        \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL)
 #define lld long long int
 
 static void print_arr(int arr[], int N) {
@@ -14,6 +16,12 @@ static void print_arr(int arr[], int N) {
 }
 
 int main() {
+    fastio;
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
     int T;
     cin >> T;
     while (T--) {
