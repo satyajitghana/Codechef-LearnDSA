@@ -1,4 +1,7 @@
-l = [5, 5]
+# 5 3 4
+# 34748
+
+l = [3, 4]
 for k in range(20):
     l.append(sum(l)%10)
 

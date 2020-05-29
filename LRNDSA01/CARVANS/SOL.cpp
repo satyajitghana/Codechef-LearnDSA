@@ -17,6 +17,9 @@ int main() {
 
         int cnt = 0;
 
+        // 4 5 1 2 3
+        // 4 4 1 1 1
+
         for (int i = 0; i < N - 1; i++) {
             if (max_speed[i + 1] > max_speed[i]) {
                 max_speed[i + 1] = max_speed[i];

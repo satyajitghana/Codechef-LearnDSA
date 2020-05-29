@@ -35,6 +35,7 @@ int main() {
         for (int i = 0; i < acts; i++) {
             total += act_points[i];
         }
+        // std::accumulate
 
         if (origin == "INDIAN") {
             cout << total / 200 << '\n';
