@@ -45,9 +45,39 @@ int main() {
     freopen("output.txt", "w", stdout);
 #endif
 
-    int T;
-    cin >> T;
-    while (T--) {
+    int N, X, Y;
+    cin >> N >> X >> Y;
+
+    std::vector<lld> S(N), E(N);
+
+    fori(i, 0, N) {
+        cin >> S[i] >> E[i];
     }
+
+    std::vector<lld> V(X), W(Y);
+
+    fori(i, 0, X) {
+        cin >> V[i];
+    }
+
+    fori(i, 0, Y) {
+        cin >> W[i];
+    }
+
+    std::sort(begin(V), end(V));
+    std::sort(begin(W), end(W));
+
+    lld min = numeric_limits<lld>::max();
+
+    fori(i, 0, N) {
+        auto l = std::upper_bound(begin(V), end(V), S[i]) - begin(V) - 1;
+        auto r = std::lower_bound(begin(W), end(W), E[i]) - begin(W);
+
+        if (l >= 0 and r < Y)
+            min = std::min(min, W[r] - V[l] + 1);
+    }
+
+    cout << min << '\n';
+
     return 0;
 }
