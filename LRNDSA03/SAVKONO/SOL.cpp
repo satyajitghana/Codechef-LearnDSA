@@ -9,14 +9,10 @@
 // INCLUDES
 #include <bits/stdc++.h>
 #include <cmath>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
-#include <functional>
 #include <iostream>
 #include <regex>
 #include <string>
 
-using namespace __gnu_pbds;
 using namespace std;
 
 // DEFINES
@@ -61,6 +57,39 @@ int main() {
     int T;
     cin >> T;
     while (T--) {
-    }
+        int N, Z;
+        cin >> N >> Z;
+
+        std::vector<int> powers(N);
+        std::priority_queue<int> Q;
+
+        for (auto& pow : powers) {
+            cin >> pow;
+            Q.push(pow);
+        }
+
+        int attack = 0;
+        bool defeated = false;
+
+        while (Q.top() != 0) {
+            auto top_soldier = Q.top();
+            Z -= top_soldier;
+
+            attack++;
+
+            if (Z <= 0) {
+                defeated = true;
+                break;
+            }
+
+            Q.pop();
+            Q.push(top_soldier / 2);
+        }
+
+        if (defeated)
+            cout << attack << '\n';
+        else
+            cout << "Evacuate" << '\n';
+        }
     return 0;
 }

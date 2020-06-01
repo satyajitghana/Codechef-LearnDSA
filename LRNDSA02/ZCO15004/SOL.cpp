@@ -25,8 +25,8 @@ using namespace std;
 #define ODD(_num) (((_num)&1) == 0 ? (0) : (1))
 #define EVEN(_num2) (!(((_num2)&1) == 0 ? (0) : (1)))
 #define fori(_ii, _begin, _end) for (lld _ii = _begin; _ii < _end; _ii++)
-#define DEBUG "DEBUG: "
-#define watch(__x) DEBUG << (#__x) << " : " << (__x)
+#define DEBUG "DBG: "
+#define watch(__x) cout << DEBUG << (#__x) << " : " << (__x) << endl
 #define ALL(_v) std::begin(_v), std::end(_v)
 
 // HELPER FUNCTIONS
