@@ -78,6 +78,39 @@ int main() {
     int T;
     cin >> T;
     while (T--) {
+        int N, K;
+        cin >> N >> K;
+
+        std::vector<int> A(N);
+
+        fori(i, 0, N) {
+            cin >> A[i];
+        }
+
+        auto cnt = 0;
+
+        fori(i, 0, N) {
+            // unordered_map<int, int> freq;
+            std::array<int, 2002> freq;
+            std::fill(ALL(freq), 0);
+            ordered_set<pii> s;
+
+            fori(j, i, N) {
+                int m = std::ceil(1.0 * K / (j - i + 1));
+                int Ks = std::ceil(1.0 * K / m) - 1;
+
+                s.insert({A[j], freq[A[j]]++});
+
+                auto it = s.find_by_order(Ks);
+                auto X = (*it).first;
+                auto f = freq[X];
+
+                if (freq[f] > 0)
+                    cnt++;
+            }
+        }
+
+        cout << cnt << '\n';
     }
     return 0;
 }

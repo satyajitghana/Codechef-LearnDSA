@@ -33,12 +33,8 @@ using namespace std;
 #define EVEN(_num2) (!(((_num2)&1) == 0 ? (0) : (1)))
 #define fori(_ii, _begin, _end) for (lld _ii = _begin; _ii < _end; _ii++)
 #define ALL(_v) std::begin(_v), std::end(_v)
-#define DEBUG "DEBUG: "
+#define DEBUG "DEBUG------"
 #define watch(__x) cout << DEBUG << (#__x) << " : " << (__x) << endl
-
-// PBDS
-template <typename T>
-using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 
 // HELPER FUNCTIONS
 template <typename T>
@@ -58,15 +54,6 @@ inline void print_vec(vector<T> vec, int N) {
     cout << '\n';
 }
 
-template <typename T>
-inline void print_set(set<T> s) {
-    for (auto e : s) {
-        cout << e << ' ';
-    }
-
-    cout << '\n';
-}
-
 // LET THE GAMES BEGIN
 int main() {
     fastio;
@@ -78,6 +65,42 @@ int main() {
     int T;
     cin >> T;
     while (T--) {
+        int N, M, K;
+        cin >> N >> M >> K;
+
+        std::map<std::pair<int, int>, int> points;
+
+        fori(i, 0, K) {
+            int X, Y;
+            cin >> X >> Y;
+            points[{X, Y}] = 4;
+        }
+
+        for (auto point : points) {
+            auto X = point.first.first;
+            auto Y = point.first.second;
+
+            if (points.count({X + 1, Y}) > 0)
+                points[{X, Y}]--;
+
+            if (points.count({X - 1, Y}) > 0)
+                points[{X, Y}]--;
+
+            if (points.count({X, Y + 1}) > 0)
+                points[{X, Y}]--;
+
+            if (points.count({X, Y - 1}) > 0)
+                points[{X, Y}]--;
+        }
+
+        lld sum = 0;
+
+        for (auto point : points) {
+            sum += point.second;
+        }
+
+        cout << sum << '\n';
     }
+
     return 0;
 }
